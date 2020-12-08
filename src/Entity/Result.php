@@ -105,11 +105,20 @@ class Result implements JsonSerializable
     }
 
     /**
-     * @param int $id
+     * Implements __toString()
+     *
+     * @return string
+     * @link   http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.tostring
      */
-    public function setId(int $id): void
+    public function __toString(): string
     {
-        $this->id = $id;
+        return sprintf(
+            '%3d - %3d - %22s - %s',
+            $this->id,
+            $this->result,
+            $this->user->getUsername(),
+            $this->time->format('Y-m-d H:i:s')
+        );
     }
 
     /**
@@ -160,22 +169,6 @@ class Result implements JsonSerializable
         $this->time = $time;
     }
 
-    /**
-     * Implements __toString()
-     *
-     * @return string
-     * @link   http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.tostring
-     */
-    public function __toString(): string
-    {
-        return sprintf(
-            '%3d - %3d - %22s - %s',
-            $this->id,
-            $this->result,
-            $this->user->getUsername(),
-            $this->time->format('Y-m-d H:i:s')
-        );
-    }
 
     /**
      * Specify data which should be serialized to JSON

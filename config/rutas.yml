@@ -2,20 +2,57 @@
 ---
 ruta_raíz:
     path:     /
-    controller: 'funcionHomePage'
+    controller: 'functionHomePage'
     methods:   [ GET ]
 
 ruta_user_list:
     path:     /users
-    controller: 'funcionListadoUsuarios'
+    controller: 'functionListAllUsers'
     methods:
       - GET
 
-ruta_user:
-    path:     /users/{name}
-    controller: 'funcionUsuario'
-    defaults:
-        name: _default_
-    methods:
-        - GET
-        - DELETE
+
+route_user_create:
+    path: /users/new
+    controller: 'functionCreateUser'
+    methods:    [POST]
+
+route_user_anyone:
+    path:     /users/anyone
+    controller: 'functionUser'
+    methods:    [POST]
+
+route_user_delete:
+    path: /users/delete
+    controller: 'functionDeleteAllUsers'
+    methods:    [POST]
+
+route_user_update:
+    path: /users/update
+    controller: 'functionUpdateUser'
+    methods:    [POST]
+
+route_result_list:
+    path: /results
+    controller: 'functionListAllResults'
+    methods:    [GET]
+
+route_result_create:
+    path: /results/newResult
+    controller: 'functionCreateResult'
+    methods:    [POST]
+
+route_result_delete:
+    path: /results/delete
+    controller: 'functionDeleteAllResults'
+    methods:    [POST]
+
+route_result_update:
+    path: /results/update
+    controller: 'functionUpdateResult'
+    methods:    [POST]
+
+route_result_anyone:
+    path: /results/deleteanyone
+    controller: 'functionResult'
+    methods:    [POST]
